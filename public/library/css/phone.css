@@ -1,0 +1,53 @@
+@media only screen and (max-width: 600px) {
+/*Index*/
+.index{
+    margin: 0px 0px;
+    padding: 5px;
+}
+.layout {
+    overflow-x: hidden;
+    margin: 0px 5px;
+    padding: 5px;
+    height: max-content;
+    border-radius: 25px;
+}
+.forumsearch{
+    margin-top: 1.5rem;
+}
+.tentangweb{
+    margin: 0px 2px;
+}
+.card {
+    width:8rem;
+}
+.card-body{
+    height: 110px;
+    padding-top: 10px;
+}
+#jdlindex {
+    text-align: center;
+    padding-left: 0rem;
+}
+.tentangweb {
+    flex-direction: column;
+}
+.tentangweb>div {
+    margin-top: 1rem;
+    width: 100%;
+}
+/*submit*/
+  .drpfile {
+    height: 15rem;
+    width: auto;
+  }
+  .drpstep {
+    width: auto;
+    height: 10rem;
+  }
+  .updesc{
+    flex-direction: column;
+  }
+  .textinput{
+    height: 10rem;
+  }
+}

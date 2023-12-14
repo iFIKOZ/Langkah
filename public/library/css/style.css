@@ -1,0 +1,137 @@
+.carousel-item {
+    size: 50rem;
+}
+
+.card {
+    margin: 5px 10px 5px 10px;
+    width:14rem;
+}
+.card-body{
+    height: 80px;
+    padding-top: 10px;
+}
+.cardd {
+    margin: 5px 10px 5px 10px;
+    width:14rem;
+}
+.cardd-body{
+    height: 80px;
+    padding-top: 10px;
+}
+
+.tentangweb {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.tentangweb>div {
+    background-color: #FFEEDE;
+    text-align: justify;
+    text-justify: inter-word;
+    padding: 20px;
+    border-radius: 15px;
+    width: 40%;
+}
+
+#jdlindex {
+    margin-top: 2rem;
+    padding-left: 4rem;
+    text-align: start;
+}
+
+.pagination {
+    display: inline-block;
+    justify-content: center;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    margin-top: 1rem;
+}
+.drpstep {
+    width: 15rem;
+    height: 200px;
+  }
+.drop-container {
+    background-color: #D1F1FF;
+    position: relative;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px dashed #555;
+    color: #444;
+    cursor: pointer;
+    transition: background .2s ease-in-out, border .2s ease-in-out;
+  }
+  .file-input {
+    display: none;
+  }
+  
+  .drop-container:hover {
+    background: #a5e4fd;
+    border-color: #111;
+  }
+  
+  .drop-container:hover .drop-title {
+    color: #222;
+  }
+  
+  .drop-title {
+    color: #444;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    transition: color .2s ease-in-out;
+  }
+    .frms{
+    resize: none;
+    height: auto;
+}
+  .rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+  

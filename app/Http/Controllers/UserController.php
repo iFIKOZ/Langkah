@@ -26,7 +26,7 @@ class UserController extends Controller
             $user->usertype = $request->has('admin_permission') ? 'admin' : 'user';
     
             $user->save();
-            return redirect('admindb');
+           return redirect()->route('admin')->with('success', 'Data added');
         } else {
             return view('tambah');
         }
@@ -51,7 +51,7 @@ class UserController extends Controller
     
         $user->save(); // Use save() method to persist changes to the database
     
-        return redirect()->route('admin')->with('status', 'Data Updated');
+        return redirect()->route('admin')->with('success', 'Data Updated');
     }
 
     public function destroy($id): RedirectResponse
@@ -68,7 +68,7 @@ class UserController extends Controller
         $user->delete();
 
         // Redirect back to the admin page with a success message
-        return redirect()->route('admin')->with('status', 'User deleted successfully');
+        return redirect()->route('admin')->with('success', 'Data deleted successfully');
     }
     
 }

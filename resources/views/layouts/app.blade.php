@@ -13,7 +13,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen ">
             @include('layouts.navigation')
 
 
@@ -31,6 +31,19 @@
             <main>
                 {{ $slot }}
             </main>
+
+  <!-- Footer -->
+  <footer class=" text-center text-lg-start text-dark tpbt  border-top">
+    <div class="text-center p-1">
+      <ul class="nav col-12 col-md-auto mb-1 justify-content-center mb-md-0" style="font-size: 25px;">
+        <li class="ms-3"><a class="text-muted" href="#"><i class="fab fa-twitter"></i></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><i class="fab fa-instagram"></i></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><i class="fab fa-facebook"></i></a></li>
+      </ul>
+    </div>
+  </footer>
+  <!-- Footer -->
+
         </div>
     </body>
 </html>

@@ -77,11 +77,11 @@
       <h4>Most Recent</h4>
     </div>
     <div class="isihal">
-      <a class="isi-link" href="out-step1.html">
+      <a class="isi-link" href="step1">
         <div class="card">
             <img src="library/images/tutor/item4.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Screw tray</h5>
+                <h5 class="card-title">Sssay</h5>
             </div>
         </div>
       </a>

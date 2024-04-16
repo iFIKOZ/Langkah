@@ -19,6 +19,7 @@ use App\Http\Controllers\UserController;
 Route::view('/', 'home')->name('home');
 Route::view('/forum', 'forum')->name('forum');
 Route::view('/explore', 'explore')->name('explore');
+Route::view('/step1', 'step1')->name('step1');
 
 Route::view('/lihatdata', 'lihatdata')->name('lihatdata');
 Route::view('/updatedata', 'updatedata')->name('updatedata');

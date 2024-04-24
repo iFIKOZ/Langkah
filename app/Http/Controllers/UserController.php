@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
+use Laravolt\Avatar\Facade as Avatar;
 
 class UserController extends Controller
 {
@@ -69,6 +70,21 @@ class UserController extends Controller
 
         // Redirect back to the admin page with a success message
         return redirect()->route('admin')->with('success', 'Data deleted successfully');
+    }
+    public function register(Request $request)
+    {
+    // Handle user registration logic
+    // Once user is registered, generate avatar for the user
+
+    $user = User::create($request->all());
+
+    $avatar = Avatar::create($user->name)->toBase64();
+
+    // Optionally, you can save the avatar URL to the user record in the database
+    $user->avatar = $avatar;
+    $user->save();
+
+    // Return a response or redirect as needed
     }
     
 }

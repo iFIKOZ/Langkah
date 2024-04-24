@@ -22,7 +22,9 @@
         </div>
 
         <div class="d-flex justify-content-between align-items-center">
-            <button type="button" class="btn btn-primary shadow-none">ASK</button>
+            <a href="{{ route('ask') }}">
+                <button type="button" class="btn btn-primary shadow-none">ASK</button>
+            </a>
 
             <div class="d-flex align-items-center">
                 <button type="button" class="btn btn-secondary shadow-none" style="margin-right: 1rem;margin-left: 1rem;">Sort</button>

@@ -43,7 +43,7 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        Avatar::create($request->name)->save(storage_path(path:'app/public/avatar-' . $user->id . 'png'));
+        Avatar::create($request->name)->save(storage_path(path:'public/library/photoprofile' . $user->id . 'png'));
 
         event(new Registered($user));
 

@@ -4,6 +4,13 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\UploadController;
+use App\Http\Controllers\komenController;
+use App\Models\forum;
+use App\Models\upload;
+use App\Models\koment;
+use App\Models\komenta;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,11 +23,34 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::view('/', 'home')->name('home');
-Route::view('/forum', 'forum')->name('forum');
-Route::view('/explore', 'explore')->name('explore');
-Route::view('/step1', 'step1')->name('step1');
-Route::view('/ask', 'ask')->name('ask');
+
+/* Routing for upload*/ 
+Route::get('upload', [UploadController::class, 'index']);
+Route::post('upload-store', [UploadController::class, 'store']);
+Route::get('explore', [UploadController::class, 'view']);
+Route::get('step/{id}', [UploadController::class, 'details']);
+
+/* Routing for forum*/ 
+Route::get('ask', [PostController::class, 'index']);
+Route::post('ask-store', [PostController::class, 'store']);
+Route::get('forum', [PostController::class, 'view']);
+Route::get('detail/{id}', [PostController::class, 'details']);
+
+/* Routing for komen*/ 
+Route::post('/savefr/{slug}/{id}',[komenController::class,'store1'])->middleware('auth')->name('savefr');
+Route::post('/savest/{slug}/{id}',[komenController::class,'store2'])->middleware('auth')->name('savest');
+
+Route::get('/', function () {
+    $uploadController = new UploadController();
+    $hmrecent = $uploadController->viewrc();
+    
+    $uploadController = new UploadController();
+    $hmexp = $uploadController->viewhm();
+    
+    return view('home', compact('hmrecent', 'hmexp'));
+})->name('home');
+
+
 
 Route::view('/lihatdata', 'lihatdata')->name('lihatdata');
 Route::view('/updatedata', 'updatedata')->name('updatedata');

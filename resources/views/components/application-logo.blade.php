@@ -1,1 +1,1 @@
-<img src="library/images/logo/logo.png" alt="Bootstrap" width="50" height="44">
+<img src="{{ asset('library/images/logo/logo.png') }}" alt="Bootstrap" width="50" height="44">

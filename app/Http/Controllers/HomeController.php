@@ -16,7 +16,7 @@ class HomeController extends Controller
             $usertype = Auth()->user()->usertype;
     
             if ($usertype == 'user') {
-                return redirect()->route('profile.edit');
+                return redirect()->route('home');
             } elseif ($usertype == 'admin') {
                 return view('admin');
             }

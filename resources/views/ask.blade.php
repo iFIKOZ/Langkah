@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="title">
-        Forum
+        Ask Forum
     </x-slot>
 
     <div class="index layout">
@@ -17,41 +17,42 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.css" rel="stylesheet" />
     <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
         <div class="judulhal">
             <h3>Ask A Question</h3>
         </div>
 
         <div class="index layout">
 
-        <div class="upload">
-            <div style="padding: 1rem 2rem;">
-                <label for="files" class="drop-container drpfile" id="dropcontainer">
-                    <span class="drop-title">Upload or Drop Image Here</span>
-                  </label>
-                  <div>
-                    <input type="file" id="files" class="file-input" accept="file/*" required>
-                    <span id="file-chosen-text"></span>
-                  </div>
-              </div> 
 
-            <div class="form-group" style="padding: 10px 2rem;">
-                <label for="exampleFormControlInput1" style="float: left;">Title</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Input the title">
+        <div class="d-flex justify-content-start align-items-center">
+            <div style="margin-left:2rem;">
+                <a href="{{ url()->previous() }}">
+                        <button type="button" class="btn btn-danger shadow-none">Go Back</button>
+                </a>
             </div>
-
-            <div class="form-group" style="padding: 10px 2rem;">
-                <label for="exampleFormControlInput1" style="float: left;">Insert Description</label>
-                <textarea class="form-control frms h-100 h-md-100 " rows="4" placeholder="Insert Step Description"></textarea>
-            </div>
-
-            
-              
-
-            <div>
-                <a href="#" type="button" class="btn btn-success shadow-none mt-3" style="margin-right: 11px;">Submit</a>
-            </div>
-
         </div>
+
+        <form name="ask" id="ask" action="{{ url('ask-store') }}" method="post" style="margin-bottom:3rem;">
+    @csrf
+    <div class="upload">
+        <div class="form-group" style="padding: 10px 2rem;">
+            <label for="exampleFormControlInput1" style="float: left;">Title</label>
+            <input name="title" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Input title">
+        </div>
+
+        <div class="form-group" style="padding: 10px 2rem;">
+            <label for="exampleFormControlTextarea1" style="float: left;">Insert Description</label>
+            <textarea name="description" class="form-control frms h-100 h-md-100" rows="4" placeholder="Insert Description"></textarea>
+        </div>
+
+        <div style="margin-bottom:5rem;">
+            <button type="submit" class="btn btn-success shadow-none">Submit</button>
+        </div>
+    </div>
+</form>
+
 
     </div>
 

@@ -12,23 +12,25 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg" style="border: 2px solid #c5c5c5;">
-            <form action="{{ url('updatedata/'.$user->id) }}" method="POST" style="padding: 30px 50px;">
+            <form action="{{ url('updatefr/'.$user->id) }}" method="POST" style="padding: 30px 50px;">
             @csrf
-            @method('patch')
+            @method('PATCH')
                     <div class="mb-3">
-                        <label for="name" class="form-label">Name</label>
-                        <input value="{{ $user->name }}" class="form-control" id="name" name="name" aria-describedby="emailHelp">
+                        <label for="title" class="form-label">Title</label>
+                        <input value="{{ $user->title }}" class="form-control" id="title" name="title" aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">Email address</label>
-                        <input value="{{ $user->email }}" type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+                        <label for="Author" class="form-label">Author</label>
+                        <input value="{{ $user->author }}" type="text" class="form-control" id="author" name="author" aria-describedby="emailHelp" disabled readonly>
+                        <input type="hidden" name="author" value="{{ $user->author }}">
                     </div>
-                    <div class="mb-3 form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="admin_permission">
-                        <label class="form-check-label" for="flexCheckDefault">Check to give admin permission</label>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" style="float: left;">Description</label>
+                        <textarea name="description" class="form-control frms h-100 h-md-100" rows="5">{{ $user->description }}</textarea>
                     </div>
-                    <a href="{{ url('admindb') }}" class="btn btn-danger mr-3">Go Back</a>
-                    <button type="submit" class="btn btn-primary  ml-4">Update</button>
+
+                    <a href="{{ url('forumdb') }}" class="btn btn-danger mr-3">Go Back</a>
+                    <button type="submit" class="btn btn-primary ml-4">Update</button>
                 </form>
             </div>
             

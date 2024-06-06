@@ -24,11 +24,15 @@
 
         <div class="d-flex justify-content-end align-items-center">
             @if(session('status'))
-            <div class="alert alert-success fade show" role="alert" style="color:white;margin:1rem 2rem;background-color:#00B449;padding:5px;border-radius:3px;">
+            <div class="alert alert-success fade show" role="alert" 
+            style="color:white;margin:1rem 2rem;background-color:#00B449;padding:5px;border-radius:3px;"
+                x-data="{ show: true }"
+                x-show="show"
+                x-transition
+                x-init="setTimeout(() => show = false, 2000)">
                 <a style="padding:0px 10px;">
                 {{ session('status') }}
                 </a>
-                <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             @endif
 
@@ -47,7 +51,6 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">No</th>
                         <th scope="col">Title</th>
                         <th scope="col">Description</th>
                         <th scope="col">Author</th>
@@ -56,7 +59,6 @@
                 <tbody>     
                     @foreach($forums as $foruma)
                     <tr>
-                        <td>{{ $foruma->id }}</td>
                         <td>{{ $foruma->title }}</td>
                         <td>{!!Str::words($foruma->description,8)!!}</td>
                         <td>{{ $foruma->author }}</td>

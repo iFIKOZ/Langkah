@@ -50,4 +50,9 @@
   .textinput{
     height: 10rem;
   }
+
+.step-nav-ats > a{
+  margin:2rem 0rem;
+}
+
 }

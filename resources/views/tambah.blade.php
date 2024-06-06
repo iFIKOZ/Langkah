@@ -1,9 +1,4 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Add Data') }}
-        </h2>
-    </x-slot>
 
 <main>
     
@@ -15,8 +10,8 @@
     <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet" />
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8" >
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg" style="border: 2px solid #000;">
                 <form action="{{ route('tambah') }}" style="padding: 30px 50px;">
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
@@ -34,8 +29,9 @@
                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="admin_permission">
                         <label class="form-check-label" for="flexCheckDefault">Check to give admin permission</label>
                     </div>
-                    <button type="submit" class="btn btn-primary mr-3">Submit</button>
-                    <a href="{{ route('admin') }}" class="btn btn-danger ml-4">Go Back</a>
+                    
+                    <a href="{{ url('admindb') }}" class="btn btn-danger mr-3">Go Back</a>
+                    <button type="submit" class="btn btn-primary ml-4">Submit</button>
                 </form>
             </div>
             
@@ -43,3 +39,8 @@
     </div>
 </main>
 </x-app-layout>
+<style>
+.footerr {
+    display: none;
+}
+</style>

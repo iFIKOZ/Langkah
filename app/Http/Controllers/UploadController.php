@@ -7,6 +7,7 @@ use App\Models\koment;
 use App\Models\upload;
 use App\Models\forum;
 use App\Models\komenta;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 
 class UploadController extends Controller
@@ -50,6 +51,13 @@ class UploadController extends Controller
         $explores = upload::paginate(12);
         return view('explore', compact('explores'));
     }
+    
+    public function showw()
+    {
+        $posts = upload::paginate(5);
+
+        return view('content', ['post' => $posts]);
+    }
 
     public function details($id)
     {
@@ -75,6 +83,42 @@ class UploadController extends Controller
         return Upload::paginate(4);
     }
 
-       
+    public function lihat($id)
+    {
+        $user = Upload::find($id);
+        return view('lihatkn', compact('user'));
+    }
+    
+    public function edit($id)
+    {
+        $user = Upload::find($id);
+        return view('editkn', compact('user'));
+    }    
+
+    public function update(Request $request, $id)
+    {
+        $user = Upload::find($id);
+        $user->title = $request->title;
+        $user->author = $request->author;
+        $user->description = $request->description;
+        $user->tool = $request->tool;
+        $user->step = $request->step;
+        $user->save();
+    
+        return redirect(url('content'))->with('success', 'Data Updated');
+    }
+
+    public function destroy($id): RedirectResponse
+    {
+        $user = Upload::find($id);
+
+        if (!$user) {
+            return redirect()->route('admin')->with('error', 'User not found');
+        }
+        $user->delete();
+
+        // Redirect back to the admin page with a success message
+        return redirect(url('content'))->with('success', 'Data deleted successfully');
+    }
     
 }

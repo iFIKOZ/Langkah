@@ -1,9 +1,4 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Lihat Data') }}
-        </h2>
-    </x-slot>
 
 <main>
     
@@ -15,13 +10,13 @@
     <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet" />
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8" >
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg" style="border: 2px solid #c5c5c5;">
             <table class="table" style="margin: 20px 30px;">
                     <thead>
                         <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Nama</th>
+                        <th scope="col">Name</th>
                         <th scope="col">Email</th>
                         <th scope="col">Usertype</th>
                         <th scope="col">Created At</th>
@@ -45,10 +40,15 @@
                     
                     </tbody>
                     </table>
-                    <a href="{{ route('admin') }}" class="btn btn-danger ml-4 mb-3">Kembali</a>
+                    <a href="{{ url('admindb') }}" class="btn btn-danger ml-4 mb-3">Go back</a>
             </div>
             
         </div>
     </div>
 </main>
 </x-app-layout>
+<style>
+.footerr {
+    display: none;
+}
+</style>

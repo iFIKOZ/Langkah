@@ -7,6 +7,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\File;
 use Illuminate\View\View;
 
 class ProfileController extends Controller
@@ -56,5 +57,43 @@ class ProfileController extends Controller
         $request->session()->regenerateToken();
 
         return Redirect::to('/');
+    }
+
+    public function photo(Request $request)
+    {
+        $request->validate([
+            'picture' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+        ]);
+    
+        $user = Auth::user();
+    
+        if ($request->hasFile('picture')) {
+            $image = $request->file('picture');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move('propic', $imageName);
+    
+            // Save the file path to the database
+            $user->picture = $imageName;
+        }
+    
+        $user->save();
+    
+        return redirect()->back()->with('status', 'Profile updated successfully!');
+    }
+    
+    public function deletePhoto()
+    {
+    $user = Auth::user();
+    
+    if ($user->picture) {
+        // Delete the current picture from the storage
+        File::delete(public_path('propic/' . $user->picture));
+        
+        // Remove the picture path from the database
+        $user->picture = null;
+        $user->save();
+    }
+
+        return redirect()->back()->with('status', 'Profile picture deleted successfully!');
     }
 }

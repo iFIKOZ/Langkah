@@ -27,12 +27,27 @@
                 </div>
             </div>
 
-            
+<style>
+.profile-picturee {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right:1rem;
+    border: 2px solid #000;
+}
+</style>            
 
             @auth
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
-            <img src="{{ Avatar::create(Auth::user()->name)->toBase64(); }}" style="margin-right:1rem;">
+                    <!--Show Photo Profile -->
+        @if (Auth::user()->picture)
+            <img src="{{ asset('propic/' . Auth::user()->picture) }}" alt="Profile Picture" class="profile-picturee">
+        @else
+            <!-- Show default profile picture if the user doesn't have one -->
+            <img src="{{ Avatar::create(Auth::user()->name)->toBase64(); }}" class="profile-picturee">
+        @endif
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
@@ -53,7 +68,7 @@
                         </x-dropdown-link>
 
                         @if(Auth::check() && Auth::user()->usertype === 'admin')
-                        <x-dropdown-link :href="url('admindb')">
+                        <x-dropdown-link :href="route('dashboard')">
                             {{ __('Administrator') }}
                         </x-dropdown-link>
                         @endif

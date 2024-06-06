@@ -13,14 +13,21 @@
     <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet" />
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-white overflow-hidden  sm:rounded-lg" style="border: 2px solid #c5c5c5;">
                 <div class="p-6 text-gray-900 text-center">
                     {{ __("Admin Dashboard") }}
                     <br>
                     <a href="{{ route('profile.edit') }}" class="btn btn-primary mt-3">Edit profile</a>
-                    <a href="{{ route('admin') }}" class="btn btn-warning mt-3">To Admin Dashboard</a>
+                    <a href="{{ url('admindb') }}" class="btn btn-warning mt-3">User Account</a>
+                    <a href="{{ url('content') }}" class="btn btn-secondary mt-3">User Post</a>
+                    <a href="{{ url('content') }}" class="btn btn-secondary mt-3">Forum Post</a>
                 </div>
             </div>
         </div>
     </div>
 </x-app-layout>
+<style>
+.footerr {
+    display: none;
+}
+</style>

@@ -34,7 +34,7 @@
             </main>
 
   <!-- Footer -->
-  <footer class=" text-center text-lg-start text-dark tpbt  border-top">
+  <footer class=" text-center text-lg-start text-dark tpbt border-top footerr">
     <div class="text-center p-1">
       <ul class="nav col-12 col-md-auto mb-1 justify-content-center mb-md-0" style="font-size: 25px;">
         <li class="ms-3"><a class="text-muted" href="#"><i class="fab fa-twitter"></i></a></li>

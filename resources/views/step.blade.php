@@ -32,8 +32,7 @@
                 </div>
                 <div>
                     <div class="step-nav" id="step-nav-ats">
-                        <a href="#" type="button" class="btn btn-warning">Files</a>
-                        <a href="#supplies" type="button" class="btn btn-warning ">Tools And Material</a>
+                        <a href="#supplies" type="button" class="btn btn-warning " style="margin: 10px 0px">Tools And Material</a>
                         <a href="#step" type="button" class="btn btn-warning ">Build Step</a>
                     </div>
                 </div>
@@ -50,7 +49,7 @@
                     </div>
                     <div>
                         <ul><b>
-                            <li>{{ $stepa->tool }}</li>
+                            <p>{!! nl2br(preg_replace('/( step)/i', '<br>$1', e($stepa->tool))) !!}</p>
                           </ul></b>
                     </div>
 
@@ -59,7 +58,8 @@
                         <h3 style="text-align: center;">Step-By-Step</h3>
                     </div>
                     <div>
-                        <p>{{ $stepa->step }}
+                        <p>{!! nl2br(preg_replace('/( step)/i', '<br>$1', e($stepa->step))) !!}</p>
+
                     </div>
 
                 </div>
@@ -130,7 +130,7 @@
 
             </div>
                 <div class="step-nav " id="step-nav-bwh" style="margin-left:2rem;">
-                    <a href="#supplies" type="button" class="mt-1 btn btn-warning shadow-none">Tools And Material</a>
+                    <a href="#supplies" type="button" class="mt-1 btn btn-warning shadow-none" >Tools And Material</a>
                     <a href="#step" type="button" class="mt-1 btn btn-warning shadow-none ">Build Step</a>
                     <a href="" type="button" class="mt-5 btn btn-warning shadow-none " style="padding:15rem 0rem;background-color:grey;">Advertisement</a>
                 </div>

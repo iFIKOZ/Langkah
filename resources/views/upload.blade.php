@@ -31,11 +31,15 @@
             </div>
 
             @if(session('status'))
-            <div class="alert alert-success fade show" role="alert" style="color:white;margin:1rem 2rem;background-color:#00B449;padding:5px;border-radius:3px;">
+            <div class="alert alert-success fade show" role="alert" 
+            style="color:white;margin:1rem 2rem;background-color:#00B449;padding:5px;border-radius:3px;"
+                x-data="{ show: true }"
+                x-show="show"
+                x-transition
+                x-init="setTimeout(() => show = false, 2000)">
                 <a style="padding:0px 10px;">
                 {{ session('status') }}
                 </a>
-                <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             @endif
 

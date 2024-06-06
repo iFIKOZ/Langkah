@@ -7,6 +7,7 @@ use App\Models\koment;
 use App\Models\upload;
 use App\Models\forum;
 use App\Models\komenta;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
@@ -28,7 +29,7 @@ class PostController extends Controller
 
     public function view()
     {
-        $forums = forum::paginate(6);
+        $forums = forum::paginate(8);
         return view('forum',compact('forums'));
     }
 
@@ -40,5 +41,48 @@ class PostController extends Controller
         ->get();
 
         return view('detail',compact('detail','comments'));
+    }
+
+    public function show()
+    {
+        $posts = forum::paginate(5);
+
+        return view('forumdb', ['post' => $posts]);
+    }
+
+    public function lihat($id)
+    {
+        $user = forum::find($id);
+        return view('lihatfr', compact('user'));
+    }
+    
+    public function edit($id)
+    {
+        $user = forum::find($id);
+        return view('editfr', compact('user'));
+    }    
+
+    public function update(Request $request, $id)
+    {
+        $user = forum::find($id);
+        $user->title = $request->title;
+        $user->author = $request->author;
+        $user->description = $request->description;
+        $user->save();
+    
+        return redirect(url('forumdb'))->with('success', 'Data Updated');
+    }
+
+    public function destroy($id): RedirectResponse
+    {
+        $user = forum::find($id);
+
+        if (!$user) {
+            return redirect()->route('admin')->with('error', 'User not found');
+        }
+        $user->delete();
+
+        // Redirect back to the admin page with a success message
+        return redirect(url('forumdb'))->with('success', 'Data deleted successfully');
     }
 }

@@ -132,12 +132,12 @@ footer {
 .step-nav {
     display: flex;
     flex-direction: column;
-    margin: 2 0 10 0;
-    padding: 10 30;
-    padding-top: 20;
+    margin: 2px 0px 10px 0px;
+    padding: 10px 30px;
+    padding-top: 20px;
 }
 .step-nav > a {
-    margin: 4 0;
+    margin: 4px 0px;
 }
 .step-info {
     width: 60rem;

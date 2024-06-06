@@ -23,7 +23,7 @@
             </div>
 
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg mt-3" style="border: 2px solid #c5c5c5;">
-                    <h2 style="text-align: center;margin-top:1rem;">Account</h2>
+                    <h2 style="text-align: center;margin-top:1rem;">Forum</h2>
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                 @if ($message = Session::get('success'))
                     <div class="alert alert-success"                     
@@ -34,30 +34,28 @@
                         <p >{{ $message }}</p>
                     </div>
                 @endif
-                <a href="{{ route('tambah') }}" class="btn btn-success ml-auto">Add Data</a>
+                
                 <table class="table">
                     <thead>
                         <tr>
                         <th scope="col">ID</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Usertype</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Author</th>
                         <th scope="col">Control</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($users as $user)
+                        @foreach($post as $posts)
                         <tr>
                             
-                            <td>{{ $user->id }}</td>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>{{ $user->usertype }}</td>
+                            <td>{{ $posts->id }}</td>
+                            <td>{{ $posts->title }}</td>
+                            <td>{{ $posts->author }}</td>
                             <td>
-                                <a href="{{ url('lihatdata/'.$user->id) }}" class="btn btn-primary mr-3 ml-3">See Data</a>
-                                <a href="{{ url('editdata/'.$user->id) }}" class="btn btn-warning  ">Edit Data</a>
+                                <a href="{{ url('lihatfr/'.$posts->id) }}" class="btn btn-primary mr-3 ml-3">See Data</a>
+                                <a href="{{ url('editfr/'.$posts->id) }}" class="btn btn-warning  ">Edit Data</a>
                 
-                                <form action="{{ url('hapus'.$user->id) }}" method="post" style="display: inline;">
+                                <form action="{{ url('forumdel'.$posts->id) }}" method="post" style="display: inline;">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this data?')">Delete Data</button>
@@ -68,9 +66,12 @@
                     
                     </tbody>
                     </table>
+                    <div class="pagination">
+        {{$post->links('pagination::custom')}}
+
+        </div>
                 </div>
             </div>
-
 
 
         </div>

@@ -43,6 +43,7 @@ class PostController extends Controller
         return view('detail',compact('detail','comments'));
     }
 
+    /* admin */
     public function show()
     {
         $posts = forum::paginate(5);
